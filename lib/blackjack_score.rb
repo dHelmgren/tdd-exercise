@@ -1,6 +1,6 @@
 # blackjack_score.rb
 
-VALID_CARDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'King', 'Queen', 'Jack']
+VALID_CARDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'King', 'Queen', 'Jack']
 
 def blackjack_score(hand)
   score = 0
@@ -18,12 +18,13 @@ def blackjack_score(hand)
     if card == 1
       number_aces += 1
       1
-    elsif card.numeric?
+    elsif card.class == Integer
       card
     else
       10
     end
   end
+
 
   if score > 21
     raise ArgumentError, 'Busted!'
@@ -33,4 +34,6 @@ def blackjack_score(hand)
     number_aces -= 1
     score += 10
   end
+
+  return score
 end

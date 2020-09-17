@@ -71,14 +71,7 @@ describe 'Blackjack Score' do
 
   it 'raises an ArgumentError for scores over 21' do
     # Arrange
-    hand = ['King', 1]
-
-    # Act & Assert
-    expect {
-      expect(blackjac_score(hand))
-    }.wont_raise ArgumentError
-
-    hand << 1
+    hand = ['King','King', 1, 2]
 
     expect {
       blackjack_score(hand)
