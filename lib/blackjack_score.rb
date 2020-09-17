@@ -1,6 +1,6 @@
 # blackjack_score.rb
 
-VALID_CARDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'King', 'Queen', 'Jack']
+VALID_CARDS = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'King', 'Queen', 'Jack']
 
 def blackjack_score(hand)
   score = 0
@@ -15,7 +15,7 @@ def blackjack_score(hand)
       raise ArgumentError, 'Invalid Card'
     end
 
-    if card == 1
+    if card == 'Ace'
       number_aces += 1
       1
     elsif card.class == Integer

@@ -35,9 +35,9 @@ describe 'Blackjack Score' do
 
   it 'calculates aces as 11 where it does not go over 21' do
     # Act
-    score1 = blackjack_score([2, 1])
-    score2 = blackjack_score([2, 3, 1])
-    score3 = blackjack_score(['King', 1])
+    score1 = blackjack_score([2, 'Ace'])
+    score2 = blackjack_score([2, 3, 'Ace'])
+    score3 = blackjack_score(['King', 'Ace'])
 
     # Assert
     expect(score1).must_equal 13
@@ -47,9 +47,9 @@ describe 'Blackjack Score' do
 
   it 'calculates aces as 1, if an 11 would cause the score to go over 21' do
     # Act
-    score1 = blackjack_score([2, 10, 1])
-    score2 = blackjack_score(['King', 3, 4, 1])
-    score3 = blackjack_score(['King', 'King', 1])
+    score1 = blackjack_score([2, 10, 'Ace'])
+    score2 = blackjack_score(['King', 3, 4, 'Ace'])
+    score3 = blackjack_score(['King', 'King', 'Ace'])
 
     # Assert
     expect(score1).must_equal 13
@@ -71,7 +71,7 @@ describe 'Blackjack Score' do
 
   it 'raises an ArgumentError for scores over 21' do
     # Arrange
-    hand = ['King','King', 1, 2]
+    hand = ['King','King', 'Ace', 2]
 
     expect {
       blackjack_score(hand)
